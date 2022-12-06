@@ -12,7 +12,7 @@ const form = document.forms["reserve"];
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelector(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const modalClose = document.querySelector(".close");
+const modalClose = document.querySelectorAll(".modal-cls");
 let isValid = true;
 
 // launch modal event
@@ -21,11 +21,17 @@ modalBtn.addEventListener("click", launchModal);
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  form.style.display = "block";
 }
 
 // Close modal form
-const closeForm = modalClose.addEventListener("click", () => {
+function closeModal() {
   modalbg.style.display = "none";
+  document.querySelector(".validation").style.display = "none";
+}
+
+modalClose.forEach((el) => {
+  el.addEventListener("click", closeModal);
 });
 
 // Regex definitions
@@ -47,10 +53,10 @@ const validate = form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   isValid = true;
-  
+
   // Validation firstname
   if (
-   s form.element["first"].value.trim() === "" ||
+    form.elements["first"].value.trim() === "" ||
     !regexName.test(form.elements["first"].value.trim())
   ) {
     showError(form.elements["first"]);
@@ -115,5 +121,6 @@ const validate = form.addEventListener("submit", (e) => {
   if (isValid) {
     form.style.display = "none";
     document.querySelector(".validation").style.display = "flex";
+    form.reset();
   }
 });
