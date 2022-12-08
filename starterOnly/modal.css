@@ -130,6 +130,12 @@ img {
     bottom: 67px;
     margin: 0 auto;
   }
+
+  .btn-submit,
+  .btn-signup {
+    padding: 12px 0;
+    width: 141px;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -157,6 +163,12 @@ img {
   .btn-signup {
     position: absolute;
     bottom: 67px;
+  }
+
+  .btn-submit,
+  .btn-signup {
+    padding: 12px 0;
+    width: 141px;
   }
 }
 
@@ -637,12 +649,19 @@ footer {
   .hero-img img {
     border-radius: 10px;
     margin-top: 36px;
+    margin-bottom: 50px;
   }
 
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
+  }
+
+  .btn-submit,
+  .btn-signup {
+    padding: 12px 0;
+    width: 141px;
   }
 
   .formData[data-error]::after {
